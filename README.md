@@ -1,1 +1,1 @@
-# DSBA-6190_Proj3_Spark_w_Sagemaker
+# DSBA 6190 Project 3: Using Spark in AWS Sagemaker
