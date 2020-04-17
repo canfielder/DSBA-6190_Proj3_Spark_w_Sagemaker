@@ -1,3 +1,8 @@
+<p "center>
+  <img src="https://user-images.githubuserconaent.com/38056064/79609060-1277ae00-80c4-11ea-8c8a-b19308b4dd45.jpg" width="425" />
+</p>
+
+
 # Predicting Spam Messages Using SageMaker Spark
 This repo contains the source code for DSBA 6190 Project 3. The goal this was to employ a distributed platform towards a task suited to the platform. I chose the following:
 
