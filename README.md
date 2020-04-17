@@ -2,6 +2,7 @@
   <img src="https://user-images.githubusercontent.com/38056064/79609678-27087600-80c5-11ea-9860-ea001fb181a0.jpg" width="100%" />
 </p>
 
+[![CircleCI](https://circleci.com/gh/canfielder/DSBA-6190_Proj3_Spark_w_Sagemaker.svg?style=svg)](https://circleci.com/gh/canfielder/DSBA-6190_Proj3_Spark_w_Sagemaker)
 
 # Predicting Spam Messages Using SageMaker Spark
 This repo contains the source code for DSBA 6190 Project 3. The goal this was to employ a distributed platform towards a task suited to the platform. I chose the following:
