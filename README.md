@@ -34,8 +34,8 @@ Further description of the process is contained within the notebook.
 # Results
 The XGBoost model developed performed well, returning an accuracy of 0.980. Furthermore, the F1 Score was also 0.980, indicating high precision  and recall. The following Confusion Matrix and ROC curve was generated from the test data when evaluating the model.
 
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/38056064/79607581-6d5bd600-80c1-11ea-8b28-ced7b1d58f36.png" width="100" />
-  <img src="https://user-images.githubusercontent.com/38056064/79607548-603ee700-80c1-11ea-8360-e4e74af92924.png" width="100" /> 
+<p >
+  <img src="https://user-images.githubusercontent.com/38056064/79607581-6d5bd600-80c1-11ea-8b28-ced7b1d58f36.png" width="425" />
+  <img src="https://user-images.githubusercontent.com/38056064/79607548-603ee700-80c1-11ea-8360-e4e74af92924.png" width="425" /> 
 </p>
 
