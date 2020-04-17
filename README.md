@@ -9,7 +9,9 @@ The model development of this project was executed in Amazon SageMaker, using th
 
 # Data
 ## Souce
-The data for this project was supplied by the Kaggle **SMS Spam Collection Dataset**, found [here](https://www.kaggle.com/uciml/sms-spam-collection-dataset). The original dataset is hosted on the UCI Machine Learning Repository, and was created by Tiago A. Almeida and José María Gómez Hidalgo ([link](http://www.dt.fee.unicamp.br/~tiago//smsspamcollection/)). This data contains 5,574 messages, manually tagged ham (legitimate) or as spam. 
+The data for this project was supplied by the Kaggle **SMS Spam Collection Dataset**, found [here](https://www.kaggle.com/uciml/sms-spam-collection-dataset). The original dataset is hosted on the UCI Machine Learning Repository, and was created by Tiago A. Almeida and José María Gómez Hidalgo ([link](http://www.dt.fee.unicamp.br/~tiago//smsspamcollection/)). 
+
+This data contains 5,574 messages, manually tagged ham (legitimate) or as spam. While the size of this data set does not justify the use of Spark, in the real world, this type of problem could generate the scale of data to justify using a Spark platform.
 
 ## Import
 The data was uploaded to a dedicated S3 bucket directly from Kaggle, via the Kaggle API. To use the official Kaggle API follow the instruction found at the GitHub page, [here](https://github.com/Kaggle/kaggle-api). While straightforward, full usage does require generating a Kaggle Credetial JSON file and placing correctly on your machine.
@@ -20,9 +22,9 @@ I used a Cloud9 instance for this step. Once the Kaggle API was installed, and t
 The full modeling process is contained in the notebook **spam_identification.ipynb**.
 The notebook performs the following main tasks:
 
-1. Initialize Spark.
+1. Initialize Spark Session (v2.3.2)
 2. Preprocess and normalize the text data.
-3. Perform TF-IDF tranformation on the text data.
+3. Tokenize and perform TF-IDF tranformation on the text data via Pyspark pipeline.
 4. Train and deploy the XGBoost model on the training data.
 5. Evaluate the performance on the model on the test data.
 6. Delete the deployed model endpoint.
