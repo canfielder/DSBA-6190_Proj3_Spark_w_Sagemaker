@@ -5,9 +5,9 @@
 [![CircleCI](https://circleci.com/gh/canfielder/DSBA-6190_Proj3_Spark_w_Sagemaker.svg?style=svg)](https://circleci.com/gh/canfielder/DSBA-6190_Proj3_Spark_w_Sagemaker)
 
 # Predicting Spam Messages Using SageMaker Spark
-This repo contains the source code for DSBA 6190 Project 3. The goal this was to employ a distributed platform towards a task suited to the platform. I chose the following:
+This repo contains the source code for DSBA 6190 Project 3. The goal was to employ a distributed platform towards a task suited such a platform. I chose the following:
 
-* __Platform__: Spark (via Sagemaker Spark) on Amazon Sagemaker 
+* __Platform__: Spark (via Sagemaker Spark and Pyspark) on Amazon Sagemaker 
 * __Task__: Develop a model to identify Spam messages
 
 # Environment
@@ -20,7 +20,7 @@ The data for this project was supplied by the Kaggle **SMS Spam Collection Datas
 This data contains 5,574 messages, manually tagged ham (legitimate) or as spam. While the size of this data set does not justify the use of Spark, in the real world, this type of problem could generate the scale of data to justify using a Spark platform.
 
 ## Import
-The data was uploaded to a dedicated S3 bucket directly from Kaggle, via the Kaggle API. To use the official Kaggle API follow the instruction found at the GitHub page, [here](https://github.com/Kaggle/kaggle-api). While straightforward, full usage does require generating a Kaggle Credential  JSON file and placing correctly on your machine.
+The data was uploaded to a dedicated S3 bucket directly from Kaggle, via the Kaggle API. To use the official Kaggle API follow the instruction found at the GitHub page, [here](https://github.com/Kaggle/kaggle-api). While straightforward, full usage does require generating a Kaggle Credential JSON file and placing correctly on your machine.
 
 I used a Cloud9 instance for this step. Once the Kaggle API was installed, and the credential JSON properly located, the Makefile in this repo uses the commands **kaggle_download**, **extract**, and **s3_upload** to properly import the data. 
 
@@ -38,7 +38,7 @@ The notebook performs the following main tasks:
 Further description of the process is contained within the notebook.
 
 # Results
-The XGBoost model developed performed well, returning an accuracy of 0.980. Furthermore, the F1 Score was also 0.980, indicating high precision  and recall. The following Confusion Matrix and ROC curve was generated from the test data when evaluating the model.
+The XGBoost model developed performed well, returning an accuracy of 0.980. Furthermore, the F1 Score was also 0.980, indicating high precision and recall. The following Confusion Matrix and ROC curve was generated from the test data when evaluating the model.
 
 <p >
   <img src="https://user-images.githubusercontent.com/38056064/79607581-6d5bd600-80c1-11ea-8b28-ced7b1d58f36.png" width="425" />
