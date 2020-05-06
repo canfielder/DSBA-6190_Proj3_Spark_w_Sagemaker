@@ -35,7 +35,7 @@ The notebook performs the following main tasks:
 5. Evaluate the performance on the model on the test data.
 6. Delete the deployed model endpoint.
 
-Further description of the process is contained within the notebook.
+Further description of the process is contained within the **spam_identification** notebook.
 
 # Results
 The XGBoost model developed performed well, returning an accuracy of 0.980. Furthermore, the F1 Score was also 0.980, indicating high precision and recall. The following Confusion Matrix and ROC curve was generated from the test data when evaluating the model.
