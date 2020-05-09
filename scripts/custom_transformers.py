@@ -2,7 +2,7 @@ from pyspark import keyword_only
 from pyspark.ml import Transformer
 from pyspark.ml.param.shared import HasInputCol, HasOutputCol, Param
 import pyspark.sql.functions as f
-from pyspark.sql.types import IntegerType
+from pyspark.sql.types import DoubleType
 
 # Transformer which replaces text, identified via regex expression, with a supplied text string
 class NormalizeText(Transformer, HasInputCol, HasOutputCol):
@@ -38,8 +38,9 @@ class NormalizeText(Transformer, HasInputCol, HasOutputCol):
         df_transform = df.withColumn(out_col, f.regexp_replace(f.col(in_col), replacement_string, normalized_text))
         
         return df_transform
-
-# Transformer which converts text to lower case
+'''
+Transformer which converts text to lower case
+'''
 class LowerCase(Transformer, HasInputCol, HasOutputCol):
     
     @keyword_only
@@ -65,7 +66,7 @@ class LowerCase(Transformer, HasInputCol, HasOutputCol):
     
 
 '''
-Transformer which converts binary target variable from text to integers of 0/1
+Transformer which converts binary target variable from text to double-types of 0/1
 This transformer also allows for the renaming of the target variable. The
 renaming defaults to "label".
 '''
@@ -96,7 +97,7 @@ class BinaryTransform(Transformer, HasInputCol, HasOutputCol):
                              .otherwise(f.col(in_col)))
         
         #Convert 1/0 to int
-        df_binary = df_binary.withColumn(out_col, f.col(out_col).cast(IntegerType()))
+        df_binary = df_binary.withColumn(out_col, f.col(out_col).cast(DoubleType()))
         
         # Drop spam/ham column
         df_binary = df_binary.drop(in_col)
@@ -105,3 +106,27 @@ class BinaryTransform(Transformer, HasInputCol, HasOutputCol):
         df_binary = df_binary.select(out_col, 'sms')
 
         return df_binary
+
+class ColumnSelect(Transformer, HasInputCol):
+    
+    @keyword_only
+    def __init__(self, inputCol=None):
+        super(ColumnSelect, self).__init__()
+        kwargs = self._input_kwargs
+        self.setParams(**kwargs)
+        
+    @keyword_only
+    def setParams(self, inputCol=None):
+        kwargs = self._input_kwargs
+        return self._set(**kwargs)
+    
+    
+    def _transform(self, df):        
+             
+        in_col = self.getInputCol()
+        
+        # Re-Label and Select Columns
+        df_final = df.select("label", f.col(in_col).alias("features"))
+
+        return df_final
+    
