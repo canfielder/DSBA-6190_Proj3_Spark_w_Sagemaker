@@ -10,6 +10,8 @@ This repo contains the source code for DSBA 6190 Project 3. The goal was to empl
 * __Platform__: Spark (via Sagemaker Spark and Pyspark) on Amazon Sagemaker 
 * __Task__: Develop a model to identify Spam messages
 
+A full walkthrough of this project can be found at my [Utilizing Spark and SageMaker](https://evan-canfield.netlify.app/post/spark-sagemaker-pipeline/) blog post. 
+
 # Environment
 The model development of this project was executed in Amazon SageMaker, using the SageMaker Spark library. The model developed was an XGBoost model, used for the binary classification of spam vs ham messages. The SageMaker Spark contains an XGBoost Estimator equipped for Spark DataFrames. If I was to use a model other than XGBoost, I both have access models in the Pyspark ML library, and SageMaker allows the adaptation of any Sagemaker algorithm to a model which is compatible with Spark.
 
